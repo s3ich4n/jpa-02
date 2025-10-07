@@ -1,0 +1,12 @@
+services:
+  db:
+    platform: linux/amd64
+    container_name: h2
+    image: oscarfonts/h2
+    ports:
+      - "1521:1521"
+      - "8081:81"
+    environment:
+      H2_OPTIONS: -ifNotExists
+    volumes:
+      - ./db:/opt/h2-data
