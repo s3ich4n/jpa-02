@@ -37,4 +37,13 @@ public class Category {
     @OneToMany
     @JoinColumn(name = "parent")
     private List<Category> children = new ArrayList<>();
+
+    /**
+     * 연관관계 편의 메소드 - 자식 추가
+     * @param child
+     */
+    public void addChildCategory(Category child) {
+        this.children.add(child);
+        child.setParent(this);
+    }
 }

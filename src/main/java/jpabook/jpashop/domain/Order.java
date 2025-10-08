@@ -33,4 +33,31 @@ public class Order {
     private LocalDateTime orderDate;
 
     private OrderStatus status;
+
+    /**
+     * 연관관계 메소드 - 멤버와 주문을 연결해주는 메소드
+     * @param member
+     */
+    public void setMember(Member member) {
+        this.member = member;
+        member.getOrders().add(this);
+    }
+
+    /**
+     * 연관관계 메소드 - 주문과 주문상품을 연결해주는 메소드
+     * @param orderItem
+     */
+    public void setOrderItem(OrderItem orderItem) {
+        orderItems.add(orderItem);
+        orderItem.setOrder(this);
+    }
+
+    /**
+     * 연관관계 메소드 - 주문과 배송을 연결해주는 메소드
+     * @param delivery
+     */
+    public void setDelivery(Delivery delivery) {
+        this.delivery = delivery;
+        delivery.setOrder(this);
+    }
 }
