@@ -17,7 +17,7 @@ public class Order {
     private Long id;
 
     // 연관관계의 주인이 어떤 DB컬럼과 함께 join 처리를 할건지 기재한다.
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
 
